@@ -8,21 +8,21 @@ Perl-style regular expressions can be constructed as follows.
 
 */
 
-<RE>	::=	<union> | <simple-RE>
+<RE>	::=	<union> | <simple_RE>
 ;
-<union>	::=	<RE> "|" <simple-RE>
+<union>	::=	<RE> "|" <simple_RE>
 ;
-<simple-RE>	::=	<concatenation> | <basic-RE>
+<simple_RE>	::=	<concatenation> | <basic_RE>
 ;
-<concatenation>	::=	<simple-RE> <basic-RE>
+<concatenation>	::=	<simple_RE> <basic_RE>
 ;
-<basic-RE>	::=	<star> | <plus> | <elementary-RE>
+<basic_RE>	::=	<star> | <plus> | <elementary_RE>
 ;
-<star>	::=	<elementary-RE> "*"
+<star>	::=	<elementary_RE> "*"
 ;
-<plus>	::=	<elementary-RE> "+"
+<plus>	::=	<elementary_RE> "+"
 ;
-<elementary-RE>	::=	<group> | <any> | <eos> | <char> | <set>
+<elementary_RE>	::=	<group> | <any> | <eos> | <char> | <set>
 ;
 <group>	::=	"(" <RE> ")"
 ;
@@ -32,15 +32,15 @@ Perl-style regular expressions can be constructed as follows.
 ;
 <char>	::=	any non metacharacter | "\" metacharacter
 ;
-<set>	::=	<positive-set> | <negative-set>
+<set>	::=	<positive_set> | <negative_set>
 ;
-<positive-set>	::=	"[" <set-items> "]"
+<positive_set>	::=	"[" <set_items> "]"
 ;
-<negative-set>	::=	"[^" <set-items> "]"
+<negative_set>	::=	"[^" <set_items> "]"
 ;
-<set-items>	::=	<set-item> | <set-item> <set-items>
+<set_items>	::=	<set_item> | <set_item> <set_items>
 ;
-<set-items>	::=	<range> | <char>
+<set_items>	::=	<range> | <char>
 ;
 <range>	::=	<char> "-" <char>
 ;
