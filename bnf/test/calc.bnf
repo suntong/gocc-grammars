@@ -1,3 +1,5 @@
+// from https://www.geeksforgeeks.org/bnf-notation-in-compiler-design/
+
 <expr> ::= <term> "+" <expr>
         |  <term>
 ;

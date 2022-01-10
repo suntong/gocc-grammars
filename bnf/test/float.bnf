@@ -1,3 +1,5 @@
+// from https://www.geeksforgeeks.org/bnf-notation-in-compiler-design/
+
 floatnumber   ::=  pointfloat | exponentfloat
 ;
 pointfloat    ::=  [intpart] fraction | intpart "."
