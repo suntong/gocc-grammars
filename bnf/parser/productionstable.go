@@ -33,7 +33,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `RuleList : rule	<<  >>`,
+		String: `RuleList : Rule	<<  >>`,
 		Id:         "RuleList",
 		NTType:     1,
 		Index:      1,
@@ -43,11 +43,211 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `RuleList : RuleList rule	<<  >>`,
+		String: `RuleList : RuleList Rule	<<  >>`,
 		Id:         "RuleList",
 		NTType:     1,
 		Index:      2,
 		NumSymbols: 2,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Rule : Lhs assign Rhs semicolon	<<  >>`,
+		Id:         "Rule",
+		NTType:     2,
+		Index:      3,
+		NumSymbols: 4,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Lhs : Id_	<<  >>`,
+		Id:         "Lhs",
+		NTType:     3,
+		Index:      4,
+		NumSymbols: 1,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Rhs : Alternatives	<<  >>`,
+		Id:         "Rhs",
+		NTType:     4,
+		Index:      5,
+		NumSymbols: 1,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Alternatives : Alternative	<<  >>`,
+		Id:         "Alternatives",
+		NTType:     5,
+		Index:      6,
+		NumSymbols: 1,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Alternatives : Alternatives bar Alternative	<<  >>`,
+		Id:         "Alternatives",
+		NTType:     5,
+		Index:      7,
+		NumSymbols: 3,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Alternative : Element	<<  >>`,
+		Id:         "Alternative",
+		NTType:     6,
+		Index:      8,
+		NumSymbols: 1,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Alternative : Alternative Element	<<  >>`,
+		Id:         "Alternative",
+		NTType:     6,
+		Index:      9,
+		NumSymbols: 2,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Element : Optional_	<<  >>`,
+		Id:         "Element",
+		NTType:     7,
+		Index:      10,
+		NumSymbols: 1,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Element : Zeroormore	<<  >>`,
+		Id:         "Element",
+		NTType:     7,
+		Index:      11,
+		NumSymbols: 1,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Element : Oneormore	<<  >>`,
+		Id:         "Element",
+		NTType:     7,
+		Index:      12,
+		NumSymbols: 1,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Element : Text_	<<  >>`,
+		Id:         "Element",
+		NTType:     7,
+		Index:      13,
+		NumSymbols: 1,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Element : Id_	<<  >>`,
+		Id:         "Element",
+		NTType:     7,
+		Index:      14,
+		NumSymbols: 1,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Optional_ : lend Alternatives rend	<<  >>`,
+		Id:         "Optional_",
+		NTType:     8,
+		Index:      15,
+		NumSymbols: 3,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Zeroormore : lbrace Alternatives rbrace	<<  >>`,
+		Id:         "Zeroormore",
+		NTType:     9,
+		Index:      16,
+		NumSymbols: 3,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Oneormore : lparen Alternatives rparen	<<  >>`,
+		Id:         "Oneormore",
+		NTType:     10,
+		Index:      17,
+		NumSymbols: 3,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Text_ : ident	<<  >>`,
+		Id:         "Text_",
+		NTType:     11,
+		Index:      18,
+		NumSymbols: 1,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Text_ : string_literal	<<  >>`,
+		Id:         "Text_",
+		NTType:     11,
+		Index:      19,
+		NumSymbols: 1,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Id_ : Ruleid	<<  >>`,
+		Id:         "Id_",
+		NTType:     12,
+		Index:      20,
+		NumSymbols: 1,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Id_ : lt Ruleid gt	<<  >>`,
+		Id:         "Id_",
+		NTType:     12,
+		Index:      21,
+		NumSymbols: 3,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Ruleid : ident	<<  >>`,
+		Id:         "Ruleid",
+		NTType:     13,
+		Index:      22,
+		NumSymbols: 1,
 		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
 			return X[0], nil
 		},

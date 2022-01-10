@@ -16,7 +16,19 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,      // INVALID
 			nil,      // $
-			shift(2), // rule
+			nil,      // assign
+			nil,      // semicolon
+			nil,      // bar
+			nil,      // lend
+			nil,      // rend
+			nil,      // lbrace
+			nil,      // rbrace
+			nil,      // lparen
+			nil,      // rparen
+			shift(5), // ident
+			nil,      // string_literal
+			shift(7), // lt
+			nil,      // gt
 		},
 	},
 	actionRow{ // S1
@@ -24,7 +36,19 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,          // INVALID
 			accept(true), // $
-			shift(3),     // rule
+			nil,          // assign
+			nil,          // semicolon
+			nil,          // bar
+			nil,          // lend
+			nil,          // rend
+			nil,          // lbrace
+			nil,          // rbrace
+			nil,          // lparen
+			nil,          // rparen
+			shift(5),     // ident
+			nil,          // string_literal
+			shift(7),     // lt
+			nil,          // gt
 		},
 	},
 	actionRow{ // S2
@@ -32,15 +56,2279 @@ var actionTab = actionTable{
 		actions: [numSymbols]action{
 			nil,       // INVALID
 			reduce(1), // $, reduce: RuleList
-			reduce(1), // rule, reduce: RuleList
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			nil,       // lend
+			nil,       // rend
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // lparen
+			nil,       // rparen
+			reduce(1), // ident, reduce: RuleList
+			nil,       // string_literal
+			reduce(1), // lt, reduce: RuleList
+			nil,       // gt
 		},
 	},
 	actionRow{ // S3
 		canRecover: false,
 		actions: [numSymbols]action{
+			nil,      // INVALID
+			nil,      // $
+			shift(9), // assign
+			nil,      // semicolon
+			nil,      // bar
+			nil,      // lend
+			nil,      // rend
+			nil,      // lbrace
+			nil,      // rbrace
+			nil,      // lparen
+			nil,      // rparen
+			nil,      // ident
+			nil,      // string_literal
+			nil,      // lt
+			nil,      // gt
+		},
+	},
+	actionRow{ // S4
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			reduce(4), // assign, reduce: Lhs
+			nil,       // semicolon
+			nil,       // bar
+			nil,       // lend
+			nil,       // rend
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // lparen
+			nil,       // rparen
+			nil,       // ident
+			nil,       // string_literal
+			nil,       // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S5
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(22), // assign, reduce: Ruleid
+			nil,        // semicolon
+			nil,        // bar
+			nil,        // lend
+			nil,        // rend
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // ident
+			nil,        // string_literal
+			nil,        // lt
+			nil,        // gt
+		},
+	},
+	actionRow{ // S6
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(20), // assign, reduce: Id_
+			nil,        // semicolon
+			nil,        // bar
+			nil,        // lend
+			nil,        // rend
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // ident
+			nil,        // string_literal
+			nil,        // lt
+			nil,        // gt
+		},
+	},
+	actionRow{ // S7
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			nil,       // lend
+			nil,       // rend
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // lparen
+			nil,       // rparen
+			shift(10), // ident
+			nil,       // string_literal
+			nil,       // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S8
+		canRecover: false,
+		actions: [numSymbols]action{
 			nil,       // INVALID
 			reduce(2), // $, reduce: RuleList
-			reduce(2), // rule, reduce: RuleList
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			nil,       // lend
+			nil,       // rend
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // lparen
+			nil,       // rparen
+			reduce(2), // ident, reduce: RuleList
+			nil,       // string_literal
+			reduce(2), // lt, reduce: RuleList
+			nil,       // gt
+		},
+	},
+	actionRow{ // S9
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			shift(21), // lend
+			nil,       // rend
+			shift(22), // lbrace
+			nil,       // rbrace
+			shift(23), // lparen
+			nil,       // rparen
+			shift(24), // ident
+			shift(25), // string_literal
+			shift(27), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S10
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			nil,        // bar
+			nil,        // lend
+			nil,        // rend
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // ident
+			nil,        // string_literal
+			nil,        // lt
+			reduce(22), // gt, reduce: Ruleid
+		},
+	},
+	actionRow{ // S11
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			nil,       // lend
+			nil,       // rend
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // lparen
+			nil,       // rparen
+			nil,       // ident
+			nil,       // string_literal
+			nil,       // lt
+			shift(28), // gt
+		},
+	},
+	actionRow{ // S12
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			shift(29), // semicolon
+			nil,       // bar
+			nil,       // lend
+			nil,       // rend
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // lparen
+			nil,       // rparen
+			nil,       // ident
+			nil,       // string_literal
+			nil,       // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S13
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			reduce(14), // semicolon, reduce: Element
+			reduce(14), // bar, reduce: Element
+			reduce(14), // lend, reduce: Element
+			nil,        // rend
+			reduce(14), // lbrace, reduce: Element
+			nil,        // rbrace
+			reduce(14), // lparen, reduce: Element
+			nil,        // rparen
+			reduce(14), // ident, reduce: Element
+			reduce(14), // string_literal, reduce: Element
+			reduce(14), // lt, reduce: Element
+			nil,        // gt
+		},
+	},
+	actionRow{ // S14
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			reduce(5), // semicolon, reduce: Rhs
+			shift(30), // bar
+			nil,       // lend
+			nil,       // rend
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // lparen
+			nil,       // rparen
+			nil,       // ident
+			nil,       // string_literal
+			nil,       // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S15
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			reduce(6), // semicolon, reduce: Alternatives
+			reduce(6), // bar, reduce: Alternatives
+			shift(21), // lend
+			nil,       // rend
+			shift(22), // lbrace
+			nil,       // rbrace
+			shift(23), // lparen
+			nil,       // rparen
+			shift(24), // ident
+			shift(25), // string_literal
+			shift(27), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S16
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			reduce(8), // semicolon, reduce: Alternative
+			reduce(8), // bar, reduce: Alternative
+			reduce(8), // lend, reduce: Alternative
+			nil,       // rend
+			reduce(8), // lbrace, reduce: Alternative
+			nil,       // rbrace
+			reduce(8), // lparen, reduce: Alternative
+			nil,       // rparen
+			reduce(8), // ident, reduce: Alternative
+			reduce(8), // string_literal, reduce: Alternative
+			reduce(8), // lt, reduce: Alternative
+			nil,       // gt
+		},
+	},
+	actionRow{ // S17
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			reduce(10), // semicolon, reduce: Element
+			reduce(10), // bar, reduce: Element
+			reduce(10), // lend, reduce: Element
+			nil,        // rend
+			reduce(10), // lbrace, reduce: Element
+			nil,        // rbrace
+			reduce(10), // lparen, reduce: Element
+			nil,        // rparen
+			reduce(10), // ident, reduce: Element
+			reduce(10), // string_literal, reduce: Element
+			reduce(10), // lt, reduce: Element
+			nil,        // gt
+		},
+	},
+	actionRow{ // S18
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			reduce(11), // semicolon, reduce: Element
+			reduce(11), // bar, reduce: Element
+			reduce(11), // lend, reduce: Element
+			nil,        // rend
+			reduce(11), // lbrace, reduce: Element
+			nil,        // rbrace
+			reduce(11), // lparen, reduce: Element
+			nil,        // rparen
+			reduce(11), // ident, reduce: Element
+			reduce(11), // string_literal, reduce: Element
+			reduce(11), // lt, reduce: Element
+			nil,        // gt
+		},
+	},
+	actionRow{ // S19
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			reduce(12), // semicolon, reduce: Element
+			reduce(12), // bar, reduce: Element
+			reduce(12), // lend, reduce: Element
+			nil,        // rend
+			reduce(12), // lbrace, reduce: Element
+			nil,        // rbrace
+			reduce(12), // lparen, reduce: Element
+			nil,        // rparen
+			reduce(12), // ident, reduce: Element
+			reduce(12), // string_literal, reduce: Element
+			reduce(12), // lt, reduce: Element
+			nil,        // gt
+		},
+	},
+	actionRow{ // S20
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			reduce(13), // semicolon, reduce: Element
+			reduce(13), // bar, reduce: Element
+			reduce(13), // lend, reduce: Element
+			nil,        // rend
+			reduce(13), // lbrace, reduce: Element
+			nil,        // rbrace
+			reduce(13), // lparen, reduce: Element
+			nil,        // rparen
+			reduce(13), // ident, reduce: Element
+			reduce(13), // string_literal, reduce: Element
+			reduce(13), // lt, reduce: Element
+			nil,        // gt
+		},
+	},
+	actionRow{ // S21
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			shift(40), // lend
+			nil,       // rend
+			shift(41), // lbrace
+			nil,       // rbrace
+			shift(42), // lparen
+			nil,       // rparen
+			shift(43), // ident
+			shift(44), // string_literal
+			shift(46), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S22
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			shift(55), // lend
+			nil,       // rend
+			shift(56), // lbrace
+			nil,       // rbrace
+			shift(57), // lparen
+			nil,       // rparen
+			shift(58), // ident
+			shift(59), // string_literal
+			shift(61), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S23
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			shift(70), // lend
+			nil,       // rend
+			shift(71), // lbrace
+			nil,       // rbrace
+			shift(72), // lparen
+			nil,       // rparen
+			shift(73), // ident
+			shift(74), // string_literal
+			shift(76), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S24
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			reduce(18), // semicolon, reduce: Text_
+			reduce(18), // bar, reduce: Text_
+			reduce(18), // lend, reduce: Text_
+			nil,        // rend
+			reduce(18), // lbrace, reduce: Text_
+			nil,        // rbrace
+			reduce(18), // lparen, reduce: Text_
+			nil,        // rparen
+			reduce(18), // ident, reduce: Text_
+			reduce(18), // string_literal, reduce: Text_
+			reduce(18), // lt, reduce: Text_
+			nil,        // gt
+		},
+	},
+	actionRow{ // S25
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			reduce(19), // semicolon, reduce: Text_
+			reduce(19), // bar, reduce: Text_
+			reduce(19), // lend, reduce: Text_
+			nil,        // rend
+			reduce(19), // lbrace, reduce: Text_
+			nil,        // rbrace
+			reduce(19), // lparen, reduce: Text_
+			nil,        // rparen
+			reduce(19), // ident, reduce: Text_
+			reduce(19), // string_literal, reduce: Text_
+			reduce(19), // lt, reduce: Text_
+			nil,        // gt
+		},
+	},
+	actionRow{ // S26
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			reduce(20), // semicolon, reduce: Id_
+			reduce(20), // bar, reduce: Id_
+			reduce(20), // lend, reduce: Id_
+			nil,        // rend
+			reduce(20), // lbrace, reduce: Id_
+			nil,        // rbrace
+			reduce(20), // lparen, reduce: Id_
+			nil,        // rparen
+			reduce(20), // ident, reduce: Id_
+			reduce(20), // string_literal, reduce: Id_
+			reduce(20), // lt, reduce: Id_
+			nil,        // gt
+		},
+	},
+	actionRow{ // S27
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			nil,       // lend
+			nil,       // rend
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // lparen
+			nil,       // rparen
+			shift(10), // ident
+			nil,       // string_literal
+			nil,       // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S28
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			reduce(21), // assign, reduce: Id_
+			nil,        // semicolon
+			nil,        // bar
+			nil,        // lend
+			nil,        // rend
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // ident
+			nil,        // string_literal
+			nil,        // lt
+			nil,        // gt
+		},
+	},
+	actionRow{ // S29
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			reduce(3), // $, reduce: Rule
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			nil,       // lend
+			nil,       // rend
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // lparen
+			nil,       // rparen
+			reduce(3), // ident, reduce: Rule
+			nil,       // string_literal
+			reduce(3), // lt, reduce: Rule
+			nil,       // gt
+		},
+	},
+	actionRow{ // S30
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			shift(21), // lend
+			nil,       // rend
+			shift(22), // lbrace
+			nil,       // rbrace
+			shift(23), // lparen
+			nil,       // rparen
+			shift(24), // ident
+			shift(25), // string_literal
+			shift(27), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S31
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			reduce(9), // semicolon, reduce: Alternative
+			reduce(9), // bar, reduce: Alternative
+			reduce(9), // lend, reduce: Alternative
+			nil,       // rend
+			reduce(9), // lbrace, reduce: Alternative
+			nil,       // rbrace
+			reduce(9), // lparen, reduce: Alternative
+			nil,       // rparen
+			reduce(9), // ident, reduce: Alternative
+			reduce(9), // string_literal, reduce: Alternative
+			reduce(9), // lt, reduce: Alternative
+			nil,       // gt
+		},
+	},
+	actionRow{ // S32
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(14), // bar, reduce: Element
+			reduce(14), // lend, reduce: Element
+			reduce(14), // rend, reduce: Element
+			reduce(14), // lbrace, reduce: Element
+			nil,        // rbrace
+			reduce(14), // lparen, reduce: Element
+			nil,        // rparen
+			reduce(14), // ident, reduce: Element
+			reduce(14), // string_literal, reduce: Element
+			reduce(14), // lt, reduce: Element
+			nil,        // gt
+		},
+	},
+	actionRow{ // S33
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			shift(79), // bar
+			nil,       // lend
+			shift(80), // rend
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // lparen
+			nil,       // rparen
+			nil,       // ident
+			nil,       // string_literal
+			nil,       // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S34
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			reduce(6), // bar, reduce: Alternatives
+			shift(40), // lend
+			reduce(6), // rend, reduce: Alternatives
+			shift(41), // lbrace
+			nil,       // rbrace
+			shift(42), // lparen
+			nil,       // rparen
+			shift(43), // ident
+			shift(44), // string_literal
+			shift(46), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S35
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			reduce(8), // bar, reduce: Alternative
+			reduce(8), // lend, reduce: Alternative
+			reduce(8), // rend, reduce: Alternative
+			reduce(8), // lbrace, reduce: Alternative
+			nil,       // rbrace
+			reduce(8), // lparen, reduce: Alternative
+			nil,       // rparen
+			reduce(8), // ident, reduce: Alternative
+			reduce(8), // string_literal, reduce: Alternative
+			reduce(8), // lt, reduce: Alternative
+			nil,       // gt
+		},
+	},
+	actionRow{ // S36
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(10), // bar, reduce: Element
+			reduce(10), // lend, reduce: Element
+			reduce(10), // rend, reduce: Element
+			reduce(10), // lbrace, reduce: Element
+			nil,        // rbrace
+			reduce(10), // lparen, reduce: Element
+			nil,        // rparen
+			reduce(10), // ident, reduce: Element
+			reduce(10), // string_literal, reduce: Element
+			reduce(10), // lt, reduce: Element
+			nil,        // gt
+		},
+	},
+	actionRow{ // S37
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(11), // bar, reduce: Element
+			reduce(11), // lend, reduce: Element
+			reduce(11), // rend, reduce: Element
+			reduce(11), // lbrace, reduce: Element
+			nil,        // rbrace
+			reduce(11), // lparen, reduce: Element
+			nil,        // rparen
+			reduce(11), // ident, reduce: Element
+			reduce(11), // string_literal, reduce: Element
+			reduce(11), // lt, reduce: Element
+			nil,        // gt
+		},
+	},
+	actionRow{ // S38
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(12), // bar, reduce: Element
+			reduce(12), // lend, reduce: Element
+			reduce(12), // rend, reduce: Element
+			reduce(12), // lbrace, reduce: Element
+			nil,        // rbrace
+			reduce(12), // lparen, reduce: Element
+			nil,        // rparen
+			reduce(12), // ident, reduce: Element
+			reduce(12), // string_literal, reduce: Element
+			reduce(12), // lt, reduce: Element
+			nil,        // gt
+		},
+	},
+	actionRow{ // S39
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(13), // bar, reduce: Element
+			reduce(13), // lend, reduce: Element
+			reduce(13), // rend, reduce: Element
+			reduce(13), // lbrace, reduce: Element
+			nil,        // rbrace
+			reduce(13), // lparen, reduce: Element
+			nil,        // rparen
+			reduce(13), // ident, reduce: Element
+			reduce(13), // string_literal, reduce: Element
+			reduce(13), // lt, reduce: Element
+			nil,        // gt
+		},
+	},
+	actionRow{ // S40
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			shift(40), // lend
+			nil,       // rend
+			shift(41), // lbrace
+			nil,       // rbrace
+			shift(42), // lparen
+			nil,       // rparen
+			shift(43), // ident
+			shift(44), // string_literal
+			shift(46), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S41
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			shift(55), // lend
+			nil,       // rend
+			shift(56), // lbrace
+			nil,       // rbrace
+			shift(57), // lparen
+			nil,       // rparen
+			shift(58), // ident
+			shift(59), // string_literal
+			shift(61), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S42
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			shift(70), // lend
+			nil,       // rend
+			shift(71), // lbrace
+			nil,       // rbrace
+			shift(72), // lparen
+			nil,       // rparen
+			shift(73), // ident
+			shift(74), // string_literal
+			shift(76), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S43
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(18), // bar, reduce: Text_
+			reduce(18), // lend, reduce: Text_
+			reduce(18), // rend, reduce: Text_
+			reduce(18), // lbrace, reduce: Text_
+			nil,        // rbrace
+			reduce(18), // lparen, reduce: Text_
+			nil,        // rparen
+			reduce(18), // ident, reduce: Text_
+			reduce(18), // string_literal, reduce: Text_
+			reduce(18), // lt, reduce: Text_
+			nil,        // gt
+		},
+	},
+	actionRow{ // S44
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(19), // bar, reduce: Text_
+			reduce(19), // lend, reduce: Text_
+			reduce(19), // rend, reduce: Text_
+			reduce(19), // lbrace, reduce: Text_
+			nil,        // rbrace
+			reduce(19), // lparen, reduce: Text_
+			nil,        // rparen
+			reduce(19), // ident, reduce: Text_
+			reduce(19), // string_literal, reduce: Text_
+			reduce(19), // lt, reduce: Text_
+			nil,        // gt
+		},
+	},
+	actionRow{ // S45
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(20), // bar, reduce: Id_
+			reduce(20), // lend, reduce: Id_
+			reduce(20), // rend, reduce: Id_
+			reduce(20), // lbrace, reduce: Id_
+			nil,        // rbrace
+			reduce(20), // lparen, reduce: Id_
+			nil,        // rparen
+			reduce(20), // ident, reduce: Id_
+			reduce(20), // string_literal, reduce: Id_
+			reduce(20), // lt, reduce: Id_
+			nil,        // gt
+		},
+	},
+	actionRow{ // S46
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			nil,       // lend
+			nil,       // rend
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // lparen
+			nil,       // rparen
+			shift(10), // ident
+			nil,       // string_literal
+			nil,       // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S47
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(14), // bar, reduce: Element
+			reduce(14), // lend, reduce: Element
+			nil,        // rend
+			reduce(14), // lbrace, reduce: Element
+			reduce(14), // rbrace, reduce: Element
+			reduce(14), // lparen, reduce: Element
+			nil,        // rparen
+			reduce(14), // ident, reduce: Element
+			reduce(14), // string_literal, reduce: Element
+			reduce(14), // lt, reduce: Element
+			nil,        // gt
+		},
+	},
+	actionRow{ // S48
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			shift(86), // bar
+			nil,       // lend
+			nil,       // rend
+			nil,       // lbrace
+			shift(87), // rbrace
+			nil,       // lparen
+			nil,       // rparen
+			nil,       // ident
+			nil,       // string_literal
+			nil,       // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S49
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			reduce(6), // bar, reduce: Alternatives
+			shift(55), // lend
+			nil,       // rend
+			shift(56), // lbrace
+			reduce(6), // rbrace, reduce: Alternatives
+			shift(57), // lparen
+			nil,       // rparen
+			shift(58), // ident
+			shift(59), // string_literal
+			shift(61), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S50
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			reduce(8), // bar, reduce: Alternative
+			reduce(8), // lend, reduce: Alternative
+			nil,       // rend
+			reduce(8), // lbrace, reduce: Alternative
+			reduce(8), // rbrace, reduce: Alternative
+			reduce(8), // lparen, reduce: Alternative
+			nil,       // rparen
+			reduce(8), // ident, reduce: Alternative
+			reduce(8), // string_literal, reduce: Alternative
+			reduce(8), // lt, reduce: Alternative
+			nil,       // gt
+		},
+	},
+	actionRow{ // S51
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(10), // bar, reduce: Element
+			reduce(10), // lend, reduce: Element
+			nil,        // rend
+			reduce(10), // lbrace, reduce: Element
+			reduce(10), // rbrace, reduce: Element
+			reduce(10), // lparen, reduce: Element
+			nil,        // rparen
+			reduce(10), // ident, reduce: Element
+			reduce(10), // string_literal, reduce: Element
+			reduce(10), // lt, reduce: Element
+			nil,        // gt
+		},
+	},
+	actionRow{ // S52
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(11), // bar, reduce: Element
+			reduce(11), // lend, reduce: Element
+			nil,        // rend
+			reduce(11), // lbrace, reduce: Element
+			reduce(11), // rbrace, reduce: Element
+			reduce(11), // lparen, reduce: Element
+			nil,        // rparen
+			reduce(11), // ident, reduce: Element
+			reduce(11), // string_literal, reduce: Element
+			reduce(11), // lt, reduce: Element
+			nil,        // gt
+		},
+	},
+	actionRow{ // S53
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(12), // bar, reduce: Element
+			reduce(12), // lend, reduce: Element
+			nil,        // rend
+			reduce(12), // lbrace, reduce: Element
+			reduce(12), // rbrace, reduce: Element
+			reduce(12), // lparen, reduce: Element
+			nil,        // rparen
+			reduce(12), // ident, reduce: Element
+			reduce(12), // string_literal, reduce: Element
+			reduce(12), // lt, reduce: Element
+			nil,        // gt
+		},
+	},
+	actionRow{ // S54
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(13), // bar, reduce: Element
+			reduce(13), // lend, reduce: Element
+			nil,        // rend
+			reduce(13), // lbrace, reduce: Element
+			reduce(13), // rbrace, reduce: Element
+			reduce(13), // lparen, reduce: Element
+			nil,        // rparen
+			reduce(13), // ident, reduce: Element
+			reduce(13), // string_literal, reduce: Element
+			reduce(13), // lt, reduce: Element
+			nil,        // gt
+		},
+	},
+	actionRow{ // S55
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			shift(40), // lend
+			nil,       // rend
+			shift(41), // lbrace
+			nil,       // rbrace
+			shift(42), // lparen
+			nil,       // rparen
+			shift(43), // ident
+			shift(44), // string_literal
+			shift(46), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S56
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			shift(55), // lend
+			nil,       // rend
+			shift(56), // lbrace
+			nil,       // rbrace
+			shift(57), // lparen
+			nil,       // rparen
+			shift(58), // ident
+			shift(59), // string_literal
+			shift(61), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S57
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			shift(70), // lend
+			nil,       // rend
+			shift(71), // lbrace
+			nil,       // rbrace
+			shift(72), // lparen
+			nil,       // rparen
+			shift(73), // ident
+			shift(74), // string_literal
+			shift(76), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S58
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(18), // bar, reduce: Text_
+			reduce(18), // lend, reduce: Text_
+			nil,        // rend
+			reduce(18), // lbrace, reduce: Text_
+			reduce(18), // rbrace, reduce: Text_
+			reduce(18), // lparen, reduce: Text_
+			nil,        // rparen
+			reduce(18), // ident, reduce: Text_
+			reduce(18), // string_literal, reduce: Text_
+			reduce(18), // lt, reduce: Text_
+			nil,        // gt
+		},
+	},
+	actionRow{ // S59
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(19), // bar, reduce: Text_
+			reduce(19), // lend, reduce: Text_
+			nil,        // rend
+			reduce(19), // lbrace, reduce: Text_
+			reduce(19), // rbrace, reduce: Text_
+			reduce(19), // lparen, reduce: Text_
+			nil,        // rparen
+			reduce(19), // ident, reduce: Text_
+			reduce(19), // string_literal, reduce: Text_
+			reduce(19), // lt, reduce: Text_
+			nil,        // gt
+		},
+	},
+	actionRow{ // S60
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(20), // bar, reduce: Id_
+			reduce(20), // lend, reduce: Id_
+			nil,        // rend
+			reduce(20), // lbrace, reduce: Id_
+			reduce(20), // rbrace, reduce: Id_
+			reduce(20), // lparen, reduce: Id_
+			nil,        // rparen
+			reduce(20), // ident, reduce: Id_
+			reduce(20), // string_literal, reduce: Id_
+			reduce(20), // lt, reduce: Id_
+			nil,        // gt
+		},
+	},
+	actionRow{ // S61
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			nil,       // lend
+			nil,       // rend
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // lparen
+			nil,       // rparen
+			shift(10), // ident
+			nil,       // string_literal
+			nil,       // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S62
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(14), // bar, reduce: Element
+			reduce(14), // lend, reduce: Element
+			nil,        // rend
+			reduce(14), // lbrace, reduce: Element
+			nil,        // rbrace
+			reduce(14), // lparen, reduce: Element
+			reduce(14), // rparen, reduce: Element
+			reduce(14), // ident, reduce: Element
+			reduce(14), // string_literal, reduce: Element
+			reduce(14), // lt, reduce: Element
+			nil,        // gt
+		},
+	},
+	actionRow{ // S63
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			shift(93), // bar
+			nil,       // lend
+			nil,       // rend
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // lparen
+			shift(94), // rparen
+			nil,       // ident
+			nil,       // string_literal
+			nil,       // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S64
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			reduce(6), // bar, reduce: Alternatives
+			shift(70), // lend
+			nil,       // rend
+			shift(71), // lbrace
+			nil,       // rbrace
+			shift(72), // lparen
+			reduce(6), // rparen, reduce: Alternatives
+			shift(73), // ident
+			shift(74), // string_literal
+			shift(76), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S65
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			reduce(8), // bar, reduce: Alternative
+			reduce(8), // lend, reduce: Alternative
+			nil,       // rend
+			reduce(8), // lbrace, reduce: Alternative
+			nil,       // rbrace
+			reduce(8), // lparen, reduce: Alternative
+			reduce(8), // rparen, reduce: Alternative
+			reduce(8), // ident, reduce: Alternative
+			reduce(8), // string_literal, reduce: Alternative
+			reduce(8), // lt, reduce: Alternative
+			nil,       // gt
+		},
+	},
+	actionRow{ // S66
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(10), // bar, reduce: Element
+			reduce(10), // lend, reduce: Element
+			nil,        // rend
+			reduce(10), // lbrace, reduce: Element
+			nil,        // rbrace
+			reduce(10), // lparen, reduce: Element
+			reduce(10), // rparen, reduce: Element
+			reduce(10), // ident, reduce: Element
+			reduce(10), // string_literal, reduce: Element
+			reduce(10), // lt, reduce: Element
+			nil,        // gt
+		},
+	},
+	actionRow{ // S67
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(11), // bar, reduce: Element
+			reduce(11), // lend, reduce: Element
+			nil,        // rend
+			reduce(11), // lbrace, reduce: Element
+			nil,        // rbrace
+			reduce(11), // lparen, reduce: Element
+			reduce(11), // rparen, reduce: Element
+			reduce(11), // ident, reduce: Element
+			reduce(11), // string_literal, reduce: Element
+			reduce(11), // lt, reduce: Element
+			nil,        // gt
+		},
+	},
+	actionRow{ // S68
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(12), // bar, reduce: Element
+			reduce(12), // lend, reduce: Element
+			nil,        // rend
+			reduce(12), // lbrace, reduce: Element
+			nil,        // rbrace
+			reduce(12), // lparen, reduce: Element
+			reduce(12), // rparen, reduce: Element
+			reduce(12), // ident, reduce: Element
+			reduce(12), // string_literal, reduce: Element
+			reduce(12), // lt, reduce: Element
+			nil,        // gt
+		},
+	},
+	actionRow{ // S69
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(13), // bar, reduce: Element
+			reduce(13), // lend, reduce: Element
+			nil,        // rend
+			reduce(13), // lbrace, reduce: Element
+			nil,        // rbrace
+			reduce(13), // lparen, reduce: Element
+			reduce(13), // rparen, reduce: Element
+			reduce(13), // ident, reduce: Element
+			reduce(13), // string_literal, reduce: Element
+			reduce(13), // lt, reduce: Element
+			nil,        // gt
+		},
+	},
+	actionRow{ // S70
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			shift(40), // lend
+			nil,       // rend
+			shift(41), // lbrace
+			nil,       // rbrace
+			shift(42), // lparen
+			nil,       // rparen
+			shift(43), // ident
+			shift(44), // string_literal
+			shift(46), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S71
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			shift(55), // lend
+			nil,       // rend
+			shift(56), // lbrace
+			nil,       // rbrace
+			shift(57), // lparen
+			nil,       // rparen
+			shift(58), // ident
+			shift(59), // string_literal
+			shift(61), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S72
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			shift(70), // lend
+			nil,       // rend
+			shift(71), // lbrace
+			nil,       // rbrace
+			shift(72), // lparen
+			nil,       // rparen
+			shift(73), // ident
+			shift(74), // string_literal
+			shift(76), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S73
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(18), // bar, reduce: Text_
+			reduce(18), // lend, reduce: Text_
+			nil,        // rend
+			reduce(18), // lbrace, reduce: Text_
+			nil,        // rbrace
+			reduce(18), // lparen, reduce: Text_
+			reduce(18), // rparen, reduce: Text_
+			reduce(18), // ident, reduce: Text_
+			reduce(18), // string_literal, reduce: Text_
+			reduce(18), // lt, reduce: Text_
+			nil,        // gt
+		},
+	},
+	actionRow{ // S74
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(19), // bar, reduce: Text_
+			reduce(19), // lend, reduce: Text_
+			nil,        // rend
+			reduce(19), // lbrace, reduce: Text_
+			nil,        // rbrace
+			reduce(19), // lparen, reduce: Text_
+			reduce(19), // rparen, reduce: Text_
+			reduce(19), // ident, reduce: Text_
+			reduce(19), // string_literal, reduce: Text_
+			reduce(19), // lt, reduce: Text_
+			nil,        // gt
+		},
+	},
+	actionRow{ // S75
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(20), // bar, reduce: Id_
+			reduce(20), // lend, reduce: Id_
+			nil,        // rend
+			reduce(20), // lbrace, reduce: Id_
+			nil,        // rbrace
+			reduce(20), // lparen, reduce: Id_
+			reduce(20), // rparen, reduce: Id_
+			reduce(20), // ident, reduce: Id_
+			reduce(20), // string_literal, reduce: Id_
+			reduce(20), // lt, reduce: Id_
+			nil,        // gt
+		},
+	},
+	actionRow{ // S76
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			nil,       // lend
+			nil,       // rend
+			nil,       // lbrace
+			nil,       // rbrace
+			nil,       // lparen
+			nil,       // rparen
+			shift(10), // ident
+			nil,       // string_literal
+			nil,       // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S77
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			nil,        // bar
+			nil,        // lend
+			nil,        // rend
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // ident
+			nil,        // string_literal
+			nil,        // lt
+			shift(100), // gt
+		},
+	},
+	actionRow{ // S78
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			reduce(7), // semicolon, reduce: Alternatives
+			reduce(7), // bar, reduce: Alternatives
+			shift(21), // lend
+			nil,       // rend
+			shift(22), // lbrace
+			nil,       // rbrace
+			shift(23), // lparen
+			nil,       // rparen
+			shift(24), // ident
+			shift(25), // string_literal
+			shift(27), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S79
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			shift(40), // lend
+			nil,       // rend
+			shift(41), // lbrace
+			nil,       // rbrace
+			shift(42), // lparen
+			nil,       // rparen
+			shift(43), // ident
+			shift(44), // string_literal
+			shift(46), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S80
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			reduce(15), // semicolon, reduce: Optional_
+			reduce(15), // bar, reduce: Optional_
+			reduce(15), // lend, reduce: Optional_
+			nil,        // rend
+			reduce(15), // lbrace, reduce: Optional_
+			nil,        // rbrace
+			reduce(15), // lparen, reduce: Optional_
+			nil,        // rparen
+			reduce(15), // ident, reduce: Optional_
+			reduce(15), // string_literal, reduce: Optional_
+			reduce(15), // lt, reduce: Optional_
+			nil,        // gt
+		},
+	},
+	actionRow{ // S81
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			reduce(9), // bar, reduce: Alternative
+			reduce(9), // lend, reduce: Alternative
+			reduce(9), // rend, reduce: Alternative
+			reduce(9), // lbrace, reduce: Alternative
+			nil,       // rbrace
+			reduce(9), // lparen, reduce: Alternative
+			nil,       // rparen
+			reduce(9), // ident, reduce: Alternative
+			reduce(9), // string_literal, reduce: Alternative
+			reduce(9), // lt, reduce: Alternative
+			nil,       // gt
+		},
+	},
+	actionRow{ // S82
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			shift(79),  // bar
+			nil,        // lend
+			shift(102), // rend
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // ident
+			nil,        // string_literal
+			nil,        // lt
+			nil,        // gt
+		},
+	},
+	actionRow{ // S83
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			shift(86),  // bar
+			nil,        // lend
+			nil,        // rend
+			nil,        // lbrace
+			shift(103), // rbrace
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // ident
+			nil,        // string_literal
+			nil,        // lt
+			nil,        // gt
+		},
+	},
+	actionRow{ // S84
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			shift(93),  // bar
+			nil,        // lend
+			nil,        // rend
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // lparen
+			shift(104), // rparen
+			nil,        // ident
+			nil,        // string_literal
+			nil,        // lt
+			nil,        // gt
+		},
+	},
+	actionRow{ // S85
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			nil,        // bar
+			nil,        // lend
+			nil,        // rend
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // ident
+			nil,        // string_literal
+			nil,        // lt
+			shift(105), // gt
+		},
+	},
+	actionRow{ // S86
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			shift(55), // lend
+			nil,       // rend
+			shift(56), // lbrace
+			nil,       // rbrace
+			shift(57), // lparen
+			nil,       // rparen
+			shift(58), // ident
+			shift(59), // string_literal
+			shift(61), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S87
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			reduce(16), // semicolon, reduce: Zeroormore
+			reduce(16), // bar, reduce: Zeroormore
+			reduce(16), // lend, reduce: Zeroormore
+			nil,        // rend
+			reduce(16), // lbrace, reduce: Zeroormore
+			nil,        // rbrace
+			reduce(16), // lparen, reduce: Zeroormore
+			nil,        // rparen
+			reduce(16), // ident, reduce: Zeroormore
+			reduce(16), // string_literal, reduce: Zeroormore
+			reduce(16), // lt, reduce: Zeroormore
+			nil,        // gt
+		},
+	},
+	actionRow{ // S88
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			reduce(9), // bar, reduce: Alternative
+			reduce(9), // lend, reduce: Alternative
+			nil,       // rend
+			reduce(9), // lbrace, reduce: Alternative
+			reduce(9), // rbrace, reduce: Alternative
+			reduce(9), // lparen, reduce: Alternative
+			nil,       // rparen
+			reduce(9), // ident, reduce: Alternative
+			reduce(9), // string_literal, reduce: Alternative
+			reduce(9), // lt, reduce: Alternative
+			nil,       // gt
+		},
+	},
+	actionRow{ // S89
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			shift(79),  // bar
+			nil,        // lend
+			shift(107), // rend
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // ident
+			nil,        // string_literal
+			nil,        // lt
+			nil,        // gt
+		},
+	},
+	actionRow{ // S90
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			shift(86),  // bar
+			nil,        // lend
+			nil,        // rend
+			nil,        // lbrace
+			shift(108), // rbrace
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // ident
+			nil,        // string_literal
+			nil,        // lt
+			nil,        // gt
+		},
+	},
+	actionRow{ // S91
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			shift(93),  // bar
+			nil,        // lend
+			nil,        // rend
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // lparen
+			shift(109), // rparen
+			nil,        // ident
+			nil,        // string_literal
+			nil,        // lt
+			nil,        // gt
+		},
+	},
+	actionRow{ // S92
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			nil,        // bar
+			nil,        // lend
+			nil,        // rend
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // ident
+			nil,        // string_literal
+			nil,        // lt
+			shift(110), // gt
+		},
+	},
+	actionRow{ // S93
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			nil,       // bar
+			shift(70), // lend
+			nil,       // rend
+			shift(71), // lbrace
+			nil,       // rbrace
+			shift(72), // lparen
+			nil,       // rparen
+			shift(73), // ident
+			shift(74), // string_literal
+			shift(76), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S94
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			reduce(17), // semicolon, reduce: Oneormore
+			reduce(17), // bar, reduce: Oneormore
+			reduce(17), // lend, reduce: Oneormore
+			nil,        // rend
+			reduce(17), // lbrace, reduce: Oneormore
+			nil,        // rbrace
+			reduce(17), // lparen, reduce: Oneormore
+			nil,        // rparen
+			reduce(17), // ident, reduce: Oneormore
+			reduce(17), // string_literal, reduce: Oneormore
+			reduce(17), // lt, reduce: Oneormore
+			nil,        // gt
+		},
+	},
+	actionRow{ // S95
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			reduce(9), // bar, reduce: Alternative
+			reduce(9), // lend, reduce: Alternative
+			nil,       // rend
+			reduce(9), // lbrace, reduce: Alternative
+			nil,       // rbrace
+			reduce(9), // lparen, reduce: Alternative
+			reduce(9), // rparen, reduce: Alternative
+			reduce(9), // ident, reduce: Alternative
+			reduce(9), // string_literal, reduce: Alternative
+			reduce(9), // lt, reduce: Alternative
+			nil,       // gt
+		},
+	},
+	actionRow{ // S96
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			shift(79),  // bar
+			nil,        // lend
+			shift(112), // rend
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // ident
+			nil,        // string_literal
+			nil,        // lt
+			nil,        // gt
+		},
+	},
+	actionRow{ // S97
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			shift(86),  // bar
+			nil,        // lend
+			nil,        // rend
+			nil,        // lbrace
+			shift(113), // rbrace
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // ident
+			nil,        // string_literal
+			nil,        // lt
+			nil,        // gt
+		},
+	},
+	actionRow{ // S98
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			shift(93),  // bar
+			nil,        // lend
+			nil,        // rend
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // lparen
+			shift(114), // rparen
+			nil,        // ident
+			nil,        // string_literal
+			nil,        // lt
+			nil,        // gt
+		},
+	},
+	actionRow{ // S99
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			nil,        // bar
+			nil,        // lend
+			nil,        // rend
+			nil,        // lbrace
+			nil,        // rbrace
+			nil,        // lparen
+			nil,        // rparen
+			nil,        // ident
+			nil,        // string_literal
+			nil,        // lt
+			shift(115), // gt
+		},
+	},
+	actionRow{ // S100
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			reduce(21), // semicolon, reduce: Id_
+			reduce(21), // bar, reduce: Id_
+			reduce(21), // lend, reduce: Id_
+			nil,        // rend
+			reduce(21), // lbrace, reduce: Id_
+			nil,        // rbrace
+			reduce(21), // lparen, reduce: Id_
+			nil,        // rparen
+			reduce(21), // ident, reduce: Id_
+			reduce(21), // string_literal, reduce: Id_
+			reduce(21), // lt, reduce: Id_
+			nil,        // gt
+		},
+	},
+	actionRow{ // S101
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			reduce(7), // bar, reduce: Alternatives
+			shift(40), // lend
+			reduce(7), // rend, reduce: Alternatives
+			shift(41), // lbrace
+			nil,       // rbrace
+			shift(42), // lparen
+			nil,       // rparen
+			shift(43), // ident
+			shift(44), // string_literal
+			shift(46), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S102
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(15), // bar, reduce: Optional_
+			reduce(15), // lend, reduce: Optional_
+			reduce(15), // rend, reduce: Optional_
+			reduce(15), // lbrace, reduce: Optional_
+			nil,        // rbrace
+			reduce(15), // lparen, reduce: Optional_
+			nil,        // rparen
+			reduce(15), // ident, reduce: Optional_
+			reduce(15), // string_literal, reduce: Optional_
+			reduce(15), // lt, reduce: Optional_
+			nil,        // gt
+		},
+	},
+	actionRow{ // S103
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(16), // bar, reduce: Zeroormore
+			reduce(16), // lend, reduce: Zeroormore
+			reduce(16), // rend, reduce: Zeroormore
+			reduce(16), // lbrace, reduce: Zeroormore
+			nil,        // rbrace
+			reduce(16), // lparen, reduce: Zeroormore
+			nil,        // rparen
+			reduce(16), // ident, reduce: Zeroormore
+			reduce(16), // string_literal, reduce: Zeroormore
+			reduce(16), // lt, reduce: Zeroormore
+			nil,        // gt
+		},
+	},
+	actionRow{ // S104
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(17), // bar, reduce: Oneormore
+			reduce(17), // lend, reduce: Oneormore
+			reduce(17), // rend, reduce: Oneormore
+			reduce(17), // lbrace, reduce: Oneormore
+			nil,        // rbrace
+			reduce(17), // lparen, reduce: Oneormore
+			nil,        // rparen
+			reduce(17), // ident, reduce: Oneormore
+			reduce(17), // string_literal, reduce: Oneormore
+			reduce(17), // lt, reduce: Oneormore
+			nil,        // gt
+		},
+	},
+	actionRow{ // S105
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(21), // bar, reduce: Id_
+			reduce(21), // lend, reduce: Id_
+			reduce(21), // rend, reduce: Id_
+			reduce(21), // lbrace, reduce: Id_
+			nil,        // rbrace
+			reduce(21), // lparen, reduce: Id_
+			nil,        // rparen
+			reduce(21), // ident, reduce: Id_
+			reduce(21), // string_literal, reduce: Id_
+			reduce(21), // lt, reduce: Id_
+			nil,        // gt
+		},
+	},
+	actionRow{ // S106
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			reduce(7), // bar, reduce: Alternatives
+			shift(55), // lend
+			nil,       // rend
+			shift(56), // lbrace
+			reduce(7), // rbrace, reduce: Alternatives
+			shift(57), // lparen
+			nil,       // rparen
+			shift(58), // ident
+			shift(59), // string_literal
+			shift(61), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S107
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(15), // bar, reduce: Optional_
+			reduce(15), // lend, reduce: Optional_
+			nil,        // rend
+			reduce(15), // lbrace, reduce: Optional_
+			reduce(15), // rbrace, reduce: Optional_
+			reduce(15), // lparen, reduce: Optional_
+			nil,        // rparen
+			reduce(15), // ident, reduce: Optional_
+			reduce(15), // string_literal, reduce: Optional_
+			reduce(15), // lt, reduce: Optional_
+			nil,        // gt
+		},
+	},
+	actionRow{ // S108
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(16), // bar, reduce: Zeroormore
+			reduce(16), // lend, reduce: Zeroormore
+			nil,        // rend
+			reduce(16), // lbrace, reduce: Zeroormore
+			reduce(16), // rbrace, reduce: Zeroormore
+			reduce(16), // lparen, reduce: Zeroormore
+			nil,        // rparen
+			reduce(16), // ident, reduce: Zeroormore
+			reduce(16), // string_literal, reduce: Zeroormore
+			reduce(16), // lt, reduce: Zeroormore
+			nil,        // gt
+		},
+	},
+	actionRow{ // S109
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(17), // bar, reduce: Oneormore
+			reduce(17), // lend, reduce: Oneormore
+			nil,        // rend
+			reduce(17), // lbrace, reduce: Oneormore
+			reduce(17), // rbrace, reduce: Oneormore
+			reduce(17), // lparen, reduce: Oneormore
+			nil,        // rparen
+			reduce(17), // ident, reduce: Oneormore
+			reduce(17), // string_literal, reduce: Oneormore
+			reduce(17), // lt, reduce: Oneormore
+			nil,        // gt
+		},
+	},
+	actionRow{ // S110
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(21), // bar, reduce: Id_
+			reduce(21), // lend, reduce: Id_
+			nil,        // rend
+			reduce(21), // lbrace, reduce: Id_
+			reduce(21), // rbrace, reduce: Id_
+			reduce(21), // lparen, reduce: Id_
+			nil,        // rparen
+			reduce(21), // ident, reduce: Id_
+			reduce(21), // string_literal, reduce: Id_
+			reduce(21), // lt, reduce: Id_
+			nil,        // gt
+		},
+	},
+	actionRow{ // S111
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       // INVALID
+			nil,       // $
+			nil,       // assign
+			nil,       // semicolon
+			reduce(7), // bar, reduce: Alternatives
+			shift(70), // lend
+			nil,       // rend
+			shift(71), // lbrace
+			nil,       // rbrace
+			shift(72), // lparen
+			reduce(7), // rparen, reduce: Alternatives
+			shift(73), // ident
+			shift(74), // string_literal
+			shift(76), // lt
+			nil,       // gt
+		},
+	},
+	actionRow{ // S112
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(15), // bar, reduce: Optional_
+			reduce(15), // lend, reduce: Optional_
+			nil,        // rend
+			reduce(15), // lbrace, reduce: Optional_
+			nil,        // rbrace
+			reduce(15), // lparen, reduce: Optional_
+			reduce(15), // rparen, reduce: Optional_
+			reduce(15), // ident, reduce: Optional_
+			reduce(15), // string_literal, reduce: Optional_
+			reduce(15), // lt, reduce: Optional_
+			nil,        // gt
+		},
+	},
+	actionRow{ // S113
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(16), // bar, reduce: Zeroormore
+			reduce(16), // lend, reduce: Zeroormore
+			nil,        // rend
+			reduce(16), // lbrace, reduce: Zeroormore
+			nil,        // rbrace
+			reduce(16), // lparen, reduce: Zeroormore
+			reduce(16), // rparen, reduce: Zeroormore
+			reduce(16), // ident, reduce: Zeroormore
+			reduce(16), // string_literal, reduce: Zeroormore
+			reduce(16), // lt, reduce: Zeroormore
+			nil,        // gt
+		},
+	},
+	actionRow{ // S114
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(17), // bar, reduce: Oneormore
+			reduce(17), // lend, reduce: Oneormore
+			nil,        // rend
+			reduce(17), // lbrace, reduce: Oneormore
+			nil,        // rbrace
+			reduce(17), // lparen, reduce: Oneormore
+			reduce(17), // rparen, reduce: Oneormore
+			reduce(17), // ident, reduce: Oneormore
+			reduce(17), // string_literal, reduce: Oneormore
+			reduce(17), // lt, reduce: Oneormore
+			nil,        // gt
+		},
+	},
+	actionRow{ // S115
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        // INVALID
+			nil,        // $
+			nil,        // assign
+			nil,        // semicolon
+			reduce(21), // bar, reduce: Id_
+			reduce(21), // lend, reduce: Id_
+			nil,        // rend
+			reduce(21), // lbrace, reduce: Id_
+			nil,        // rbrace
+			reduce(21), // lparen, reduce: Id_
+			reduce(21), // rparen, reduce: Id_
+			reduce(21), // ident, reduce: Id_
+			reduce(21), // string_literal, reduce: Id_
+			reduce(21), // lt, reduce: Id_
+			nil,        // gt
 		},
 	},
 }
