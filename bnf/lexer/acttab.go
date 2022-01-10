@@ -5,7 +5,7 @@ package lexer
 import (
 	"fmt"
 
-	"token"
+	"github.com/suntong/gocc-grammars/bnf/token"
 )
 
 type ActionTable [NumStates]ActionRow
@@ -21,7 +21,7 @@ func (a ActionRow) String() string {
 
 var ActTab = ActionTable{
 	ActionRow{ // S0
-		Accept: 2,
+		Accept: 0,
 		Ignore: "",
 	},
 	ActionRow{ // S1

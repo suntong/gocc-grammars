@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"unicode/utf8"
 
-	"token"
+	"github.com/suntong/gocc-grammars/bnf/token"
 )
 
 const (

@@ -131,10 +131,20 @@ _rhs
     : _alternatives
     ;
 
-_rule_
+rule
     : _lhs _ASSIGN _rhs
     ;
 
-rulelist
-    : { _rule_ }
+/* Syntax part */
+
+<< 
+import (
+	// "github.com/suntong/gocc-grammars/bnf/token"
+	// "github.com/suntong/gocc-grammars/bnf/util"
+)
+>>
+
+RuleList
+    : rule
+    | RuleList rule
     ;
