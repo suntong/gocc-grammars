@@ -20,6 +20,11 @@ ident
     ;
 
 /* punctuation */
+plus : '+' ;
+// minus : '-' ;
+mul : '*' ;
+// div : '/' ;
+
 bar : '|' ;
 lbrace : '{' ;
 rbrace : '}' ;
@@ -85,6 +90,8 @@ Element
     | Oneormore
     | Text_
     | Id_
+    | Element mul
+    | Element plus
     ;
 
 Optional_
