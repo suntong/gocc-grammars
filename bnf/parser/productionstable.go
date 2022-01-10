@@ -173,10 +173,30 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
+		String: `Element : Element mul	<<  >>`,
+		Id:         "Element",
+		NTType:     7,
+		Index:      15,
+		NumSymbols: 2,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `Element : Element plus	<<  >>`,
+		Id:         "Element",
+		NTType:     7,
+		Index:      16,
+		NumSymbols: 2,
+		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
 		String: `Optional_ : lend Alternatives rend	<<  >>`,
 		Id:         "Optional_",
 		NTType:     8,
-		Index:      15,
+		Index:      17,
 		NumSymbols: 3,
 		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
 			return X[0], nil
@@ -186,7 +206,7 @@ var productionsTable = ProdTab{
 		String: `Zeroormore : lbrace Alternatives rbrace	<<  >>`,
 		Id:         "Zeroormore",
 		NTType:     9,
-		Index:      16,
+		Index:      18,
 		NumSymbols: 3,
 		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
 			return X[0], nil
@@ -196,7 +216,7 @@ var productionsTable = ProdTab{
 		String: `Oneormore : lparen Alternatives rparen	<<  >>`,
 		Id:         "Oneormore",
 		NTType:     10,
-		Index:      17,
+		Index:      19,
 		NumSymbols: 3,
 		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
 			return X[0], nil
@@ -206,7 +226,7 @@ var productionsTable = ProdTab{
 		String: `Text_ : ident	<<  >>`,
 		Id:         "Text_",
 		NTType:     11,
-		Index:      18,
+		Index:      20,
 		NumSymbols: 1,
 		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
 			return X[0], nil
@@ -216,7 +236,7 @@ var productionsTable = ProdTab{
 		String: `Text_ : string_literal	<<  >>`,
 		Id:         "Text_",
 		NTType:     11,
-		Index:      19,
+		Index:      21,
 		NumSymbols: 1,
 		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
 			return X[0], nil
@@ -226,7 +246,7 @@ var productionsTable = ProdTab{
 		String: `Id_ : Ruleid	<<  >>`,
 		Id:         "Id_",
 		NTType:     12,
-		Index:      20,
+		Index:      22,
 		NumSymbols: 1,
 		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
 			return X[0], nil
@@ -236,7 +256,7 @@ var productionsTable = ProdTab{
 		String: `Id_ : lt Ruleid gt	<<  >>`,
 		Id:         "Id_",
 		NTType:     12,
-		Index:      21,
+		Index:      23,
 		NumSymbols: 3,
 		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
 			return X[0], nil
@@ -246,7 +266,7 @@ var productionsTable = ProdTab{
 		String: `Ruleid : ident	<<  >>`,
 		Id:         "Ruleid",
 		NTType:     13,
-		Index:      22,
+		Index:      24,
 		NumSymbols: 1,
 		ReduceFunc: func(X []Attrib, C interface{}) (Attrib, error) {
 			return X[0], nil
