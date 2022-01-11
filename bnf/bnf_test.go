@@ -21,16 +21,11 @@ var testData = []string{
 }
 
 func TestPass(t *testing.T) {
-	p := parser.NewParser()
 	for _, ts := range testData {
-		fmt.Printf("  Testing: %s\n", ts)
-		s := lexer.NewLexer([]byte(ts))
-		r, err := p.Parse(s)
+		_, err := test([]byte(ts))
 		if err != nil {
 			t.Error(err)
 		}
-		_ = r
-		//fmt.Printf("output: %s\n", r)
 	}
 }
 
